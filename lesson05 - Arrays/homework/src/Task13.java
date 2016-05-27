@@ -13,13 +13,13 @@ public class Task13 {
 		int index = 0;
 
 		if (num < 0) {
-			while (count != -1) {
+			while (count >= 0) {
 				arr[index] = (num - 1 >> count) & 1;       //proverka za otricatelno chislo
 				count--;
 				index++;
 			}
 		} else {
-			while (count != -1) {
+			while (count >= 0) {
 				arr[index] = (num >> count) & 1;
 				count--;
 				index++;
