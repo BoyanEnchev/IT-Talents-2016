@@ -13,8 +13,7 @@ public class Task3 {
 		
 		while (index < text1.length() || index < text2.length()) {
 			if (text1.charAt(index) != text2.charAt(index)) {
-				System.out.println(index + " " + text1.charAt(index)
-												+ "-" + text2.charAt(index));
+				System.out.println(index + " " + text1.charAt(index) + "-" + text2.charAt(index));
 			}
 			index++;
 		}
