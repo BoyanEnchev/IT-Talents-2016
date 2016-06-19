@@ -3,7 +3,8 @@ public class RecursieveDraw {
 	
 	static void paintBrush(char[][] arr, int row, int col){
 		
-		if(row < 0 || row >= arr.length || col < 0 || col >= arr[arr.length-1].length || arr[row][col] == 'r' || arr[row][col] == 'b'){
+		if(row < 0 || row >= arr.length || col < 0 || col >= arr[arr.length-1].length 
+								|| arr[row][col] == 'r' || arr[row][col] == 'b'){
 			return;
 		}
 		arr[row][col] = 'r';
