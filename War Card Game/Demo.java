@@ -1,14 +1,14 @@
 package game;
 
-import java.util.Iterator;
+import java.util.ArrayList;
 
 public class Demo {
 
 	public static void main(String[] args) {
-
-		Game game = new Game();
-
-		game.play();
+		
+		Game voina = new Game();
+		voina.play();	
+	
 	}
 
 }
