@@ -1,0 +1,70 @@
+ 
+
+                                      Java EE Complete Course Program
+ 
+                                    Part I – Introduction to Programming
+
+1.Course Introduction. Introduction to programming. Compilers, interpreters, virtual machines.
+2.Primitive types, variables, basic operators, numeral systems, expressions, if-statement.
+3.Switch-Case Statement. Introduction to loops. Practice on simple tasks using loops.
+4.Practice and homework check.
+5.Arrays. Solving simple tasks with arrays.
+6.Two-dimensional arrays. Solving 2D array tasks.
+7.Practice and homework check.
+8.Strings and string-related operations. Introduction to functions.
+9.Parameter passing, arguments. Recursion.
+10.Bubble sort, Selection sort and Counting sort.
+11.Divide and Conquer – Binary Search. Order Statistics and partitioning. Quick sort.
+12.Test 1 - Programming Fundamentals, Algorithms and Data Structures.
+
+                                    Part II – Java EE Application Development
+
+                                         Introduction to OOP in Java
+
+13.Introduction to OOP. Classes and Objects. Fields. Reference types and primitive types. References and objects in memory. Methods. Method calls. Passing objects as arguments.
+14.Introduction to Constructors. The ”this” keyword. Constructor chaining. Encapsulation principle. Access modifiers. Getter and Setter methods. Keywords final and static.
+15.Inheritance. “Is a” and “Has a” relations. Access modifiers in inheritance. “Super” keyword. Class hierarchy in java.
+16.Abstraction principle. Interfaces and Abstract classes. Method overriding.
+17.Polymorphism. Override vs. Overload. Final methods and classes. Type Casting.
+18.Practice and homework check.
+19.Inner, Nested, Local and Anonymous Classes. Lambda Expressions and Functional Interfaces. Working with dates and times in Java 8.Design patterns – Singleton, Factory Method, Observer and Facade.
+20.Test 2 – Introduction to OOP.
+
+                                               Advanced Java
+
+GIT - Basic operations. (Out of class seminar)
+
+21.Exceptions in Java. What is callstack and stacktrace. Try-catch. Exceptions hierarchy, Throwable. More on exceptions – Checked, Unchecked and Errors. Wrapped exceptions. Finally.
+22.Linear data structures - Stack, Queue and List. More complex data structures – Binary Tree and Hashtable. Introduction to Collections in Java. Stack, List, Queue, Set, Map.
+23.More on collections - Iterators, Comparators. Comparable interface. Autoboxing and unboxing. Streams in Java 8.
+24.Practice and homework check.
+25.Introduction to Threads in Java. Creating, starting and stopping threads. Thread life cycle. Thread Pools.
+26.ore on Threads – wait and notify mechanisms, consumer/producer problem. Concurrent data types. Immutable Classes.Volatile.
+27.Practice and homework check.
+
+				Introduction to Relational Database Management Systems (RDBMS).
+
+					Introduction to RDBMS and MySQL as RDBMS.
+28.Structured Query Language (SQL) – How to read from database.
+29.Practice and homework check.
+30.Advanced Select Statements; Grouping Functions, Joins. Data Definition Language (DDL) – How to create and manipulate tables and keys. Data Manipulation Language (DML) – How to Insert, Update or Delete records.
+31.Introduction to JDBC. Examples. Simple JDBC app.
+32.Practice and homework check.
+33.Test 3 – Advanced Java and DB
+
+					Introduction to web development
+
+34.Introduction to HTTP procotocol and Client-Server communication. Web Containers. Working with Tomcat. Introduction to Servlets.
+35.Servlet lifecycle. What are cookies and sessions? Working with HTTP session. HTTP session state. Servlet session tracking and cookies handling.
+36.Practice and homework check.
+37.Files. Input/Output Streams. Readers and Writers. Working with JSON and XML data in Java. SAX and DOM parsers.
+38.Introduction to WEB Services. SOAP and REST. Communicating with an external web server. Using web services.
+39.Practice and homework check.
+40.Introduction to JSP. JSP lifecycle. Scriplets, Declarations, Directives and Expressions. Comparison of JSP and Servlet technologies. Implicit objects. Form processing. Page manipulation – redirect, include.
+41.Practice and homework check.
+42.Introduction to Spring Framework. Inversion of control. Dependency Injection. Spring Beans. Autowiring.
+43.Introduction to Spring MVC and MVC design pattern. 3-tier architecture. Controllers and RequestMappings.
+44.Practice and homework check.
+45.Introduction to Spring with JDBC. Spring DAO.
+46.Introduction to Spring REST. Writing own REST service.
+47.Test 4 – Final exam.
