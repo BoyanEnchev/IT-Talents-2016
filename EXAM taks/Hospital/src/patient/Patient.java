@@ -57,6 +57,9 @@ public class Patient extends Person {
 		this.medicalPlan = medicalPlan;
 		this.ward.getBed(this);
 	}
+	public void setMedicalPlan(String diagnose, Nurse nurse, byte medicalDays){
+		this.medicalPlan = new MedicalPlan(diagnose, nurse, (byte)medicalDays);
+	}
 
 	public Doctor getPatientDoctor() {
 		return this.patientDoctor;

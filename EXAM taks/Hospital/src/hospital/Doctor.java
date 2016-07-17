@@ -1,6 +1,6 @@
 package hospital;
 
-public class Doctor extends Person {
+public class Doctor extends Person  implements IVisitation {
 
 	private String specialization;
 	private boolean isFree;
@@ -16,6 +16,17 @@ public class Doctor extends Person {
 		this.specialization = specialization;
 		setFree(isFree);
 	}
+	
+	@Override
+	public void visitation(){
+		
+	}
+	
+	@Override
+	public void getInfo() {
+		// TODO Auto-generated method stub
+
+	}
 
 	public boolean isFree() {
 		return isFree;
@@ -23,12 +34,6 @@ public class Doctor extends Person {
 
 	public void setFree(boolean isFree) {
 		this.isFree = isFree;
-	}
-
-	@Override
-	public void getInfo() {
-		// TODO Auto-generated method stub
-
 	}
 
 }

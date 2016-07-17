@@ -4,7 +4,7 @@ public class Drug {
 
 	private String name;
 	
-	Drug(String name){
+	public Drug(String name){
 		if(name != null){
 			this.name = name;
 		}

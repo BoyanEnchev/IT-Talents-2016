@@ -14,13 +14,17 @@ public class MedicalPlan {
 
 	public MedicalPlan(String diagnose, Nurse nurse, byte medicalDays) {
 		setDiagnose(diagnose);
-		this.patientNurse = nurse;
+		this.setPatientNurse(nurse);
 		setMedicalDays(medicalDays);
 	}
 
 	public void addDrug(Drug drug) {
 		if (drug != null)
 			this.drugs.add(drug);
+	}
+	
+	public ArrayList<Drug> getDrugs(){
+		return this.drugs;
 	}
 
 	public String getDiagnose() {
@@ -51,5 +55,13 @@ public class MedicalPlan {
 
 	public void setCurrentDay(byte currentDay) {
 		this.currentDay = currentDay;
+	}
+
+	public Nurse getPatientNurse() {
+		return patientNurse;
+	}
+
+	public void setPatientNurse(Nurse patientNurse) {
+		this.patientNurse = patientNurse;
 	}
 }

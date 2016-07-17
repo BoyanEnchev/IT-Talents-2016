@@ -27,7 +27,7 @@ public abstract class Ward {
 					if (this.beds[index][index2] == false) {
 						this.beds[index][index2] = true;
 						nastanen = true;
-						patient.setBedNumber(index * 10 + index2 + 1);
+						patient.setBedNumber((index+1) * 10  + index2);
 						break;
 					}
 				}

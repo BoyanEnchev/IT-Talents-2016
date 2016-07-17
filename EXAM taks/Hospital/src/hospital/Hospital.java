@@ -48,6 +48,7 @@ public class Hospital {
 			patient.getWard().patients.add(patient);
 
 			patient.setMedicalPlan(new MedicalPlan(diagnose, nurse, medicalDays));
+
 		}
 	}
 
