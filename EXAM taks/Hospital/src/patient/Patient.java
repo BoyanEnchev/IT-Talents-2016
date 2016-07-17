@@ -16,17 +16,20 @@ public class Patient extends Person {
 
 	public Patient(String name, int age, String number, Gender gender, Doctor patientDoctor, Ward ward) {
 		super(name, age, number, gender);
-		if (patientDoctor != null)
+		if (patientDoctor != null){
 			this.patientDoctor = patientDoctor;
-		this.ward = ward;
+			patientDoctor.addPatientToDoctor(this);
+		}
+		if(ward != null)
+			this.ward = ward;
 	}
 
-	/*
-	 * public void addMedicalPlan(String diagnose, Nurse nurse, byte
-	 * medicalDays) { this.setMedicalPlan(new MedicalPlan(diagnose, nurse,
-	 * medicalDays)); //this.ward = nurse.getNurseWard();
-	 * this.ward.getBed(this); }
-	 */
+	public boolean isPatientGoHome(){
+		if(this.medicalPlan.getCurrentDay() == this.medicalPlan.getMedicalDays())
+			return true;
+		else
+			return false;
+	}
 
 	public void getInfo() {
 		System.out.format("Patient %s from gender %s is accepted with diagnose %s. \nHis doctor is %s", name,

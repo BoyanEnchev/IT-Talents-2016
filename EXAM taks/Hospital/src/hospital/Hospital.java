@@ -30,6 +30,29 @@ public class Hospital {
 		cardiology = new Cardiology();
 		virology = new Virology();
 	}
+	
+	
+	
+	public void dayWork(){
+		
+		for(Nurse nurse : nurses){
+			nurse.visitation();
+		}
+		
+		for(Doctor doctor : doctors){
+			doctor.visitation();
+		}
+	}
+	
+	public void checkForDischarge(){
+		for(Doctor doctor : this.doctors){
+			for(Patient patient : doctor.getAllPatients()){
+				if(patient.isPatientGoHome()){
+					
+				}
+			}
+		}
+	}
 
 	public void addPatient(Patient patient, String diagnose, Nurse nurse, byte medicalDays) {
 		if (patient != null) {
