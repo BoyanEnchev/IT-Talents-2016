@@ -3,6 +3,7 @@ package traders;
 import java.util.ArrayList;
 
 import deliverers.Deliverer;
+import interfaces.ITrader;
 import tradePlaces.StandShop;
 import tradePlaces.TradePlace;
 

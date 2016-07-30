@@ -3,6 +3,7 @@ package tradePlaces;
 import java.awt.List;
 import java.util.ArrayList;
 
+import interfaces.ITradePlace;
 import traders.Product;
 
 public abstract class TradePlace implements ITradePlace {

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import deliverers.Deliverer;
 import deliverers.SmallDeliverer;
+import interfaces.ITrader;
 import tradePlaces.MallShop;
 import tradePlaces.TradePlace;
 

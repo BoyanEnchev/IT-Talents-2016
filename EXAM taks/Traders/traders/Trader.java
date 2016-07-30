@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import deliverers.Deliverer;
+import interfaces.ITrader;
 import tradePlaces.TradePlace;
 
 public abstract class Trader implements ITrader {

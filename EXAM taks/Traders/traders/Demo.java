@@ -18,13 +18,7 @@ public class Demo {
 			String[] traderNames = {"T Petko", "T Mariq", "T Sasho", "T Misho", "T Gergana"};
 			String[] delivererNames = {"D Gosho", "D Nikoleta", "D Pena", "D Boyan", "D Dragan"}; 
 			
-			for (int i = 0; i < 10; i++) {
-				int randomInstance = (int)( Random.nextInt(2) + 3);
-				
-				if(randomInstance == 1){
-					
-				}
-			}
+		
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
