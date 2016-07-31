@@ -14,6 +14,8 @@ public abstract class TradePlace implements ITradePlace {
 	private short tax;
 	private ArrayList<Product> products = new ArrayList<Product>();
 	
+	public TradePlace() {
+	}
 	
 	public TradePlace(String address, byte workTime, float area, short tax) throws TradePlaceException {
 		super();

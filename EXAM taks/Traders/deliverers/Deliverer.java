@@ -15,4 +15,10 @@ public abstract class Deliverer {
 		}
 	}
 
+	public String getName() {
+		return name;
+	}
+
+
+
 }

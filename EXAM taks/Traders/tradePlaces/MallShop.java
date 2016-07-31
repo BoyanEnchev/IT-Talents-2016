@@ -8,6 +8,10 @@ public class MallShop  extends TradePlace{
 		super(address, workTime, area, YEAR_TAX);
 	}
 
+	public MallShop() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public void setArea(float area) throws TradePlaceException {
 		

@@ -2,7 +2,7 @@ package deliverers;
 
 public class BigDeliverer extends Deliverer{
 
-	BigDeliverer(String name) throws DelivererException {
+	public BigDeliverer(String name) throws DelivererException {
 		super(name);
 		// TODO Auto-generated constructor stub
 	}
