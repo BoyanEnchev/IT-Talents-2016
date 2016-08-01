@@ -17,7 +17,7 @@ import traders.Product;
 import traders.Trader;
 
 public class Demo {
-
+	/*
 	private static final int NUM_OF_TRADER_INSTANCE = 3;
 
 	public static void main(String[] args) {
@@ -38,11 +38,11 @@ public class Demo {
 				}
 			}
 
-			/*
-			 * for (int i = 0; i < deliverers.size(); i++) {
-			 * System.out.println(i + ". type: " + deliverers.get(i).getClass()
-			 * + " , name: " + deliverers.get(i).getName()); }
-			 */
+			
+			 for (int i = 0; i < deliverers.size(); i++) {
+			 System.out.println(i + ". type: " + deliverers.get(i).getClass()
+			 	+ " , name: " + deliverers.get(i).getName()); }
+			 
 
 			// 2)
 			for (int index = 0; index < 20; index++) {
@@ -116,6 +116,7 @@ public class Demo {
 			}
 			return products;
 		}
+		*/
 
 }
 

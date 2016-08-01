@@ -16,8 +16,8 @@ public class Demo {
 			PetrolStation omv = new PetrolStation();
 			Random r = new Random();
 
-			//omv.generateVignettes();
-			//omv.printVignettes();
+			omv.generateVignettes();
+			omv.printVignettes();
 			
 			// 2.
 			Driver[] drivers = new Driver[20];
