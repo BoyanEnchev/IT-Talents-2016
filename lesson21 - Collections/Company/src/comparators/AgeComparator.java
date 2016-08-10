@@ -1,4 +1,7 @@
+package comparators;
 import java.util.Comparator;
+
+import company.Employee;
 
 public class AgeComparator implements Comparator<Employee> {
 

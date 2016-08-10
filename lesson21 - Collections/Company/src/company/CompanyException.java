@@ -1,3 +1,5 @@
+package company;
+
 
 public class CompanyException extends Exception {
 

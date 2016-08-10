@@ -1,3 +1,5 @@
+package company;
+
 import java.util.Random;
 
 public class Employee {
@@ -26,17 +28,14 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [name=" + name + ", salary=" + salary + ", age=" + age + ", idNumber=" + idNumber + "]";
+		return "[name=" + name + ", salary=" + salary + ", age=" + age + ", idNumber=" + idNumber + "]";
 	}
-
-	
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + age;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + idNumber;
 		return result;
 	}
 
@@ -49,16 +48,12 @@ public class Employee {
 		if (getClass() != obj.getClass())
 			return false;
 		Employee other = (Employee) obj;
-		if (age != other.age)
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
+		if (idNumber != other.idNumber)
 			return false;
 		return true;
 	}
 
+	
 	public String getName() {
 		return name;
 	}
@@ -74,5 +69,6 @@ public class Employee {
 	public int getIdNumber() {
 		return idNumber;
 	}
+
 
 }
