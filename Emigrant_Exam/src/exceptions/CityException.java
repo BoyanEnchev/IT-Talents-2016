@@ -1,0 +1,31 @@
+package exceptions;
+
+public class CityException extends Exception {
+
+	private static final long serialVersionUID = 8524056932014678980L;
+
+	public CityException() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public CityException(String arg0) {
+		super(arg0);
+		// TODO Auto-generated constructor stub
+	}
+
+	public CityException(Throwable arg0) {
+		super(arg0);
+		// TODO Auto-generated constructor stub
+	}
+
+	public CityException(String arg0, Throwable arg1) {
+		super(arg0, arg1);
+		// TODO Auto-generated constructor stub
+	}
+
+	public CityException(String arg0, Throwable arg1, boolean arg2, boolean arg3) {
+		super(arg0, arg1, arg2, arg3);
+		// TODO Auto-generated constructor stub
+	}
+
+}
