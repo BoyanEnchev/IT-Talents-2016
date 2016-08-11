@@ -3,6 +3,7 @@ package cities;
 import java.util.ArrayList;
 import java.util.List;
 
+import exceptions.CityException;
 import exceptions.CountyException;
 
 public class Country {
@@ -27,6 +28,16 @@ public class Country {
 		}
 	}
 	
+	public City getCity(int index) throws CityException{
+		if(index >= 0 && index < this.cities.size())
+			return this.cities.get(index);
+		else
+			throw new CityException("Index is invalid!");
+	}
+	
+	public int getCitiesSize(){
+		return this.cities.size();
+	}
 	
 	public void printCities(){
 		for(City city : this.cities){

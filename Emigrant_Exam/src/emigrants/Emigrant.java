@@ -63,7 +63,7 @@ public abstract class Emigrant implements IEmigrant{
 
 	@Override
 	public String toString() {
-		return "Emigrant [money=" + money + ", currCity=" + currCity + ", currCountry=" + currCountry + "]";
+		return "Emigrant [money=" + money + ", " + currCity + "] ";
 	}
 	
 }

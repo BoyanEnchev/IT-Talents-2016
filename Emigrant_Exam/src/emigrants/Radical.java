@@ -1,12 +1,10 @@
 package emigrants;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import cities.City;
 import cities.Country;
 import exceptions.CityException;
 import exceptions.EmigrantException;
+import weapons.Bomb;
 import weapons.Weapon;
 
 public class Radical extends UnlegalEmigrant {
@@ -24,12 +22,12 @@ public class Radical extends UnlegalEmigrant {
 	}
 	
 	@Override
-	public void buyWeapon(Weapon weapon) throws EmigrantException, CityException{
-		if(getSizeWeapons() <= 5)
+	public boolean buyWeapon(Weapon weapon) throws EmigrantException, CityException{
+		if(getSizeWeapons() <= 5 && !(weapon instanceof Bomb)){
 			super.buyWeapon(weapon);
-		else{
-			System.out.println("The Radical emigrant should have 5 weapons at the most!");
+			return true;
 		}
+		return false;
 	}
 	
 

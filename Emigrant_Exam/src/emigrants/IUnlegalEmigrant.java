@@ -6,6 +6,6 @@ import weapons.Weapon;
 
 public interface IUnlegalEmigrant {
 
-	void buyWeapon(Weapon weapon) throws EmigrantException, CityException;
+	boolean buyWeapon(Weapon weapon) throws EmigrantException, CityException;
 
 }

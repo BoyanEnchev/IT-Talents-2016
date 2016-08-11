@@ -18,15 +18,17 @@ public abstract class UnlegalEmigrant extends Emigrant implements IUnlegalEmigra
 	}
 	
 	@Override
-	public void buyWeapon(Weapon weapon) throws EmigrantException, CityException{
+	public boolean buyWeapon(Weapon weapon) throws EmigrantException, CityException{
 		
 		if (this.getMoney() >= weapon.getPrice()) {
 			payMoneyForWeapon(weapon.getPrice());
 			this.weapons.add(weapon);
+			return true;
 		} else {
-			System.out.println("The emigrant hasn`t enough money to buy the weapon and he EXIT the city!");
-			this.getCurrCity().removeEmigrant(this);
-			this.setCurrCity(null);
+			System.out.println(this.toString() + "hasn`t enough money and he EXIT the city!");
+			//this.getCurrCity().removeEmigrant(this);
+			this.setCurrCity(new City("Pernik",25000));
+			return false;
 		}
 	}
 

@@ -37,4 +37,9 @@ public abstract class Weapon {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "Weapon [price=" + price + ", id=" + id + "]";
+	}
+
 }

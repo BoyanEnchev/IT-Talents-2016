@@ -52,6 +52,17 @@ public class City {
 		}
 
 	}
+	
+	public Emigrant getEmigrant(int index) throws CityException{
+		if(index >= 0 && index < this.emigrants.size())
+			return this.emigrants.get(index);
+		else
+			throw new CityException("Index is invalid!");
+	}
+	
+	public int getEmigrantsSize(){
+		return this.emigrants.size();
+	}
 
 	public void removeEmigrant(Emigrant emigrant) throws CityException {
 		if (emigrant != null) {
