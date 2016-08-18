@@ -1,5 +1,8 @@
 package users;
 
-public class User extends Guest{
+
+public abstract class User {
+
+	
 
 }

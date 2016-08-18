@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import exceptions.ReservationException;
+import exceptions.RoomException;
 
 public class Room {
 
@@ -19,15 +20,23 @@ public class Room {
 	private Set<String> roomFacilities;
 	private Set<Reservation> reservations;
 
-	public Room(int priceForNight, byte numAdults) {
+	public Room(int priceForNight, byte numAdults) throws RoomException {
 		this.number = ++countNumbers;
 		setType(numAdults);
-		this.priceForNight = priceForNight;
+		if(priceForNight>0){
+		this.priceForNight = priceForNight;}
+		else{
+			throw new RoomException("Invalid price for the room!");
+		}
+		if(numAdults>0){
 		this.numAdults = numAdults;
+		}
+		else{
+			throw new RoomException("Invalid number of adults");
+		}
 		roomFacilities = new HashSet<String>();
 		reservations = new TreeSet<Reservation>(new ReservationComparator());
 	}
-
 
 	private void setType(byte numAdults) {
 		if (numAdults > 0) {

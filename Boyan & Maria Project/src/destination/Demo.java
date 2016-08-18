@@ -5,10 +5,11 @@ import java.time.Period;
 import java.util.Date;
 
 import exceptions.ReservationException;
+import exceptions.RoomException;
 
 public class Demo {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws RoomException {
 		
 		Room room = new Room(50,(byte) 4);
 		/*
