@@ -1,45 +1,20 @@
 package destination;
 
 import java.time.LocalDate;
-import java.time.Period;
-import java.util.Date;
 
 import exceptions.ReservationException;
 import exceptions.RoomException;
+import users.OwnerAccount;
+import users.User;
 
 public class Demo {
 
 	public static void main(String[] args) throws RoomException {
 		
-		Room room = new Room(50,(byte) 4);
-		/*
-		System.out.println(room.dates.length);
-		
-		for (int month = 0; month < room.dates.length; month++) {
-			for (int day = 0; day < room.dates[month].length; day++) {
-				System.out.println("Mesec nomer " + (month+1) + ", day nomer: " + (day+1) + " , value = " + room.dates[month][day]);
-			}
-		}*/
-		
-		
-		LocalDate d1 = LocalDate.of(2015, 10, 1);
-		LocalDate d2 = LocalDate.of(2015, 10, 31);	
+		Room room = new Room(50,(byte) 4, 1);
 		
 		try {
-			/*room.addReservation(LocalDate.of(2016, 6, 10), LocalDate.of(2016, 6, 20));
-			room.addReservation(LocalDate.of(2016, 6, 25), LocalDate.of(2016, 7, 3));
-			room.addReservation(LocalDate.of(2016, 7, 10), LocalDate.of(2016, 7, 20));
-			room.addReservation(LocalDate.of(2017, 7, 25), LocalDate.of(2017, 8, 5));
-			room.addReservation(LocalDate.of(2016, 8, 10), LocalDate.of(2016, 8, 20));
-			
-			//invalid reservations:
-			room.addReservation(LocalDate.of(2016, 6, 17), LocalDate.of(2016, 6, 23));
-			room.addReservation(LocalDate.of(2016, 8, 7), LocalDate.of(2016, 9, 2));
-			System.out.println("----------------------------");
-			room.addReservation(LocalDate.of(2016, 7, 8), LocalDate.of(2016, 7, 10));
-			room.addReservation(LocalDate.of(2016, 6, 20), LocalDate.of(2016, 6, 26));*/
-			
-			
+		
 			room.addReservation(2016, 7, 8, 2016, 7, 15);
 			room.addReservation(2016, 7, 15, 2016, 7, 25);
 			room.addReservation(2016, 7, 23, 2016, 7, 28);
@@ -51,12 +26,20 @@ public class Demo {
 			
 			room.printReservations();
 			
-			RoomWithChildren room2 = new RoomWithChildren(50, (byte)2, (byte)1);
-			room2.addReservation(2016, 9, 10, 2016, 9, 15);
+			System.out.println("------------------------------------------\n");
 			
+			OwnerAccount maria = new OwnerAccount("mariika", "Mariika96", "mariika@abv.bg", "Maria", "Ninova");
 			
-		} catch (ReservationException e) {
-			// TODO Auto-generated catch block
+			maria.addEstate("Lazuren Brqg 13", new City("Sunny Beach"), (byte) 5);
+			
+			maria.createRooms(maria.getEstate("Lazuren Brqg 13"), 2, 0, 5, 50);
+			maria.createRooms(maria.getEstate("Lazuren Brqg 13"), 3, 0, 3, 70);
+			maria.createRooms(maria.getEstate("Lazuren Brqg 13"), 5, 0, 2, 100);
+			
+			maria.getEstate("Lazuren Brqg 13").printRooms();
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		

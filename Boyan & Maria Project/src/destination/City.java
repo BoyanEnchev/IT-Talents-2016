@@ -22,4 +22,8 @@ public class City extends Location {
 		}
 	}
 
+	public String getName() {
+		return super.getName();
+	}
+
 }

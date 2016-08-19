@@ -1,12 +1,8 @@
 package users;
 
-import destination.City;
-import destination.Estate;
 import exceptions.AccountException;
-import exceptions.CityException;
-import exceptions.EstateException;
 
-public class Account extends User implements IAccount {
+public class Account extends User {
 
 	private static final int MIN_PASSWORD_SIZE = 6;
 	private static final int MIN_USERNAME_SIZE = 4;
@@ -24,22 +20,22 @@ public class Account extends User implements IAccount {
 		} else {
 			throw new AccountException("Invalid username!");
 		}
-		if (password != null && isValidPassword(password) == true) {
+		if (isValidPassword(password)) {
 			this.password = password;
 		} else {
 			throw new AccountException("Invalid password");
 		}
-		if (email != null && isValidEmail(email) == true) {
+		if (isValidPassword(password)) {
 			this.email = email;
 		} else {
 			throw new AccountException("Invalid email!");
 		}
-		if (firstName != null) {
+		if (isValidName(firstName)) {
 			this.firstName = firstName;
 		} else {
 			throw new AccountException("Invalid first name!");
 		}
-		if (lastName != null) {
+		if (isValidName(lastName)) {
 			this.lastName = lastName;
 		} else {
 			throw new AccountException("Invalid last name!");
@@ -47,7 +43,7 @@ public class Account extends User implements IAccount {
 	}
 
 	private boolean isValidPassword(String password) {
-		if (password.length() >= MIN_PASSWORD_SIZE && !password.matches("[^A-Z]+") && !password.matches("[^a-z]+")
+		if (password != null && password.length() >= MIN_PASSWORD_SIZE && !password.matches("[^A-Z]+") && !password.matches("[^a-z]+")
 				&& !password.matches("[^0-9]+")) {
 			return true;
 		}
@@ -55,13 +51,14 @@ public class Account extends User implements IAccount {
 	}
 
 	private boolean isValidEmail(String email) {
-		// TODO Auto-generated method stub
+		if(email != null)
+			return true;
 		return false;
 	}
 
 	private boolean isValidUsername(String username) {
 
-		if (username.length() >= MIN_USERNAME_SIZE && username.matches("[A-Za-z0-9]+")) {
+		if (username != null && username.length() >= MIN_USERNAME_SIZE && username.matches("[A-Za-z0-9]+")) {
 			return true;
 		}
 		return false;
@@ -82,25 +79,17 @@ public class Account extends User implements IAccount {
 	}
 
 	@Override
-	public void addDestination(String address, City city, byte stars) throws EstateException, CityException {
-
-		Estate dest = new Estate(address, city, (byte) stars);
-
-		// check if dest contains in city TO-DO
-
-		// check if dest contains in city TO-DO
-		if (dest != null) {
-			city.addEstate(dest);
-
-		}
-
+	public String toString() {
+		return "Account [username=" + username + ", email=" + email + ", firstName=" + firstName + ", lastName="
+				+ lastName + "]";
 	}
 
-	@Override
-	public void createRoom() {
-		// TODO Auto-generated method stub
-		
+	public String getFirstName() {
+		return firstName;
 	}
-	
+
+	public String getLastName() {
+		return lastName;
+	}
 
 }

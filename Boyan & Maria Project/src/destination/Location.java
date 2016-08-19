@@ -12,4 +12,8 @@ public abstract class Location {
 			throw new LocationException("Invalid name!");
 		}
 	}
+
+	public String getName() {
+		return name;
+	}
 }

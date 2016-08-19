@@ -11,17 +11,17 @@ import exceptions.RoomException;
 
 public class Room {
 
-	private static int countNumbers = 0;
 	
 	private int number;
 	private String type;
 	private int priceForNight;
 	private byte numAdults;
+	private static Set<String> allRoomFacilites = new HashSet<String>();
 	private Set<String> roomFacilities;
 	private Set<Reservation> reservations;
 
-	public Room(int priceForNight, byte numAdults) throws RoomException {
-		this.number = ++countNumbers;
+	public Room(int priceForNight, byte numAdults, int numOfRoom) throws RoomException {
+		this.number = numOfRoom;
 		setType(numAdults);
 		if(priceForNight>0){
 		this.priceForNight = priceForNight;}
@@ -57,12 +57,12 @@ public class Room {
 			
 		if(!reservations.contains(newRes)){
 			this.reservations.add(newRes);
-			System.out.println("Room #" + this.number + " is reserved for period: " + startDay + " " + startMonth + " " + startYear +
-								" - " + endDay + " " + endMonth + " " + endYear);
+			System.out.println("Room #" + this.number + " is reserved for period: " + startDay + ". " + startMonth + ". " + startYear +
+								" - " + endDay + ". " + endMonth + ". " + endYear);
 		}
 		else{
-			System.out.println("Sorry, the room is reserved for this period: " + startDay + " " + startMonth + " " + startYear +
-					" - " + endDay + " " + endMonth + " " + endYear);
+			System.out.println("--Sorry, the room is reserved for this period: " + startDay + ". " + startMonth + ". " + startYear +
+					" - " + endDay + ". " + endMonth + ". " + endYear);
 		}		
 	}
 
@@ -156,6 +156,15 @@ public class Room {
 			}
 
 		}
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	@Override
+	public String toString() {
+		return type + " [number=" + number + ", price =" + priceForNight + ", numAdults=" + numAdults + "]";
 	}
 
 }
