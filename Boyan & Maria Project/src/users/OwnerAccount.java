@@ -5,13 +5,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import destination.Application;
 import destination.City;
+import destination.Country;
 import destination.Estate;
 import destination.Room;
 import destination.RoomWithChildren;
 import exceptions.AccountException;
 import exceptions.CityException;
 import exceptions.EstateException;
+import exceptions.LocationException;
 import exceptions.RoomException;
 
 public class OwnerAccount extends Account implements IOwnerAccount {
@@ -24,14 +27,16 @@ public class OwnerAccount extends Account implements IOwnerAccount {
 	}
 
 	@Override
-	public void addEstate(String address, City city, byte stars) throws EstateException, CityException {
+	public void addEstate(String address, Country country, City city, byte stars) throws EstateException, CityException, LocationException {
 
 		Estate estate = new Estate(address, city, (byte) stars);
 
 		// check if dest contains in city TO-DO
-		if (estate != null) {
-			city.addEstate(estate);
+		if (estate != null && country != null) {
+			Application.locations.get(country).get(city.getName()).addEstate(estate);
 			estates.put(address, estate);
+		}else{
+			System.out.println("Trqbva da napravq malko validacii tuk!");
 		}
 
 	}
@@ -51,6 +56,14 @@ public class OwnerAccount extends Account implements IOwnerAccount {
 			}
 
 		}
+		
+		else{
+			
+			for(int number=0;number< numRooms;number++){
+				Room room= new RoomWithChildren(priceForNight, (byte) adults , estate.getNumOfRooms(),(byte)children);
+				estate.addRoom(room.getType(), room);
+			}
+		}
 
 	}
 	
@@ -58,5 +71,10 @@ public class OwnerAccount extends Account implements IOwnerAccount {
 		if(estates.containsKey(address))
 				return estates.get(address);
 		throw new EstateException(super.getFirstName() + " " + super.getLastName() + " have not estate with address: " + address);
+	}
+
+	public void printEstates() {
+		
+		estates.forEach((address,estate) -> System.out.println(estate.toString()));		
 	}
 }

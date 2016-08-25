@@ -13,7 +13,7 @@ public class Room {
 
 	
 	private int number;
-	private String type;
+	protected String type;
 	private int priceForNight;
 	private byte numAdults;
 	private static Set<String> allRoomFacilites = new HashSet<String>();
@@ -36,6 +36,29 @@ public class Room {
 		}
 		roomFacilities = new HashSet<String>();
 		reservations = new TreeSet<Reservation>(new ReservationComparator());
+	}
+	
+	@Override
+	public String toString() {
+		return type + " [number=" + number + ", price =" + priceForNight + ", numAdults=" + numAdults + "]";
+	}
+
+	public static String checkType(int numAdults, int numChildren) throws RoomException {
+		if(numAdults > 0){
+			if(numChildren == 0){
+				switch(numAdults){
+				case 1: return "Single Room";
+				case 2: return "Double Room";
+				case 3: return "Triple Room";
+				case 4: return "Apart for four";
+				case 5:
+				case 6: return "Apart for six";
+				default: return "Apart for six+";
+				}
+			}
+			else return "Double Room";
+		}
+		else throw new RoomException("Invalid num of adults!");
 	}
 
 	private void setType(byte numAdults) {
@@ -162,9 +185,14 @@ public class Room {
 		return type;
 	}
 
-	@Override
-	public String toString() {
-		return type + " [number=" + number + ", price =" + priceForNight + ", numAdults=" + numAdults + "]";
+	public boolean isFree(int startYear, int startMonth, int startDay, int endYear, int endMonth, int endDay) throws ReservationException {
+		
+		if(!reservations.contains(new Reservation(startYear, startMonth, startDay, endYear, endMonth, endDay))){
+			return true;
+		}
+		return false;
 	}
+
+	
 
 }

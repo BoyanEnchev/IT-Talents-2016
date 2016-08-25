@@ -20,4 +20,10 @@ public class Country extends Location {
 			throw new CoutryException("Invalid city in the country!");
 		}
 	}
+	@Override
+	public String toString() {
+		return "Country: " + super.getName();
+	}
+	
+	
 }
