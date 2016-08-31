@@ -47,9 +47,9 @@ public class Account extends User {
 			throw new AccountException("Invalid last name!");
 		}
 	}
-	
-	public void reserve(Estate estate, LocalDate startDay, LocalDate endDay, int numAdults, int numChildren){
-		if(estate != null){
+
+	public void reserve(Estate estate, LocalDate startDay, LocalDate endDay, int numAdults, int numChildren) {
+		if (estate != null) {
 			try {
 				String roomType = Room.checkType(numAdults, numChildren);
 				estate.reserveRoom(roomType, startDay, endDay);
@@ -60,7 +60,7 @@ public class Account extends User {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
 			}
-			
+
 		}
 	}
 

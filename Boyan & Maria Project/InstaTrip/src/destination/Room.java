@@ -55,8 +55,8 @@ public class Room {
 	}
 
 	public static String checkType(int numAdults, int numChildren) throws RoomException {
-		if(numAdults>0){
-			if (numChildren==0) {
+		if (numAdults > 0) {
+			if (numChildren == 0) {
 				switch (numAdults) {
 				case 1:
 					return "Single Room";
@@ -71,17 +71,19 @@ public class Room {
 					return "Apart for six";
 				default:
 					return "Apart for six+";
-	
+
 				}
-			}  
-			   if (numChildren>0){
-				
+			}
+			if (numChildren > 0) {
+
 				int numOfAll = numAdults + numChildren;
 				if (numAdults > 0 && numChildren > 0) {
 					if (numAdults <= 2) {
 						switch (numChildren) {
-						case 1: return "Double Room+1"; 
-						case 2: return "Double Room+2";
+						case 1:
+							return "Double Room+1";
+						case 2:
+							return "Double Room+2";
 						}
 					}
 					if (numAdults == 3 && numChildren == 1)
@@ -92,31 +94,48 @@ public class Room {
 
 					if (numOfAll > 6)
 						return "Apart for six+";
-		}}}
-			
-				return "Double Room";
-				
-			
+				}
+			}
+		}
+
+		return "Double Room";
+
 	}
 
 	private void setType(byte numAdults, byte numChildren) {
 		if (numAdults > 0 && numChildren == 0) {
 			switch (numAdults) {
-			case 1: type = "Single Room"; break; 
-			case 2: type = "Double Room"; break;
-			case 3: type = "Triple Room";	break;
-			case 4: type = "Apart for four"; break;
+			case 1:
+				type = "Single Room";
+				break;
+			case 2:
+				type = "Double Room";
+				break;
+			case 3:
+				type = "Triple Room";
+				break;
+			case 4:
+				type = "Apart for four";
+				break;
 			case 5:
-			case 6: type = "Apart for six"; break;
-			default: type = "Apart for six+"; break;
+			case 6:
+				type = "Apart for six";
+				break;
+			default:
+				type = "Apart for six+";
+				break;
 			}
 		} else {
 			int numOfAll = numAdults + numChildren;
 			if (numAdults > 0 && numChildren > 0) {
 				if (numAdults <= 2) {
 					switch (numChildren) {
-					case 1: type = "Double Room+1"; break;
-					case 2: type = "Double Room+2"; break;
+					case 1:
+						type = "Double Room+1";
+						break;
+					case 2:
+						type = "Double Room+2";
+						break;
 					}
 				}
 				if (numAdults == 3 && numChildren == 1)
@@ -226,9 +245,11 @@ public class Room {
 
 		@Override
 		public int compare(Reservation tempRes, Reservation newRes) {
-			if((newRes.startDate.compareTo(tempRes.endDate) < 0 && tempRes.endDate.compareTo(newRes.endDate) < 0) 																				
-			   || (newRes.startDate.compareTo(tempRes.startDate) < 0 && tempRes.startDate.compareTo(newRes.endDate) < 0) 
-			   || (tempRes.startDate.compareTo(newRes.startDate) < 0 && newRes.endDate.compareTo(tempRes.endDate) < 0)) { 																		
+			if ((newRes.startDate.compareTo(tempRes.endDate) < 0 && tempRes.endDate.compareTo(newRes.endDate) < 0)
+					|| (newRes.startDate.compareTo(tempRes.startDate) < 0
+							&& tempRes.startDate.compareTo(newRes.endDate) < 0)
+					|| (tempRes.startDate.compareTo(newRes.startDate) < 0
+							&& newRes.endDate.compareTo(tempRes.endDate) < 0)) {
 				return 0;
 			} else {
 				return tempRes.startDate.compareTo(newRes.startDate);

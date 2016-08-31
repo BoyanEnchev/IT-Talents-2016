@@ -1,11 +1,8 @@
 package destination;
 
 import java.io.File;
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -120,7 +117,6 @@ public class Estate {
 	}
 
 	public City getCity() {
-		// TODO Auto-generated method stub
 		return city;
 	}
 

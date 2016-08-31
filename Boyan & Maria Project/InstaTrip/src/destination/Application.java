@@ -1,12 +1,8 @@
 package destination;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-
 import exceptions.CoutryException;
 import exceptions.LocationException;
 import exceptions.RoomException;
@@ -19,8 +15,6 @@ public class Application {
 	public static Map<Country, Map<String, City>> locations = new HashMap<Country, Map<String, City>>();
 
 	public static void main(String[] args) throws RoomException {
-
-		Room room = new Room(50, (byte) 4,(byte)0, 1);
 
 		try {
 
