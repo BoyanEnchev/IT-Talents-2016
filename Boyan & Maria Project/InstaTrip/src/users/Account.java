@@ -1,6 +1,12 @@
 package users;
 
+import java.time.LocalDate;
+
+import destination.Estate;
+import destination.Room;
 import exceptions.AccountException;
+import exceptions.ReservationException;
+import exceptions.RoomException;
 
 public class Account extends User {
 
@@ -41,17 +47,33 @@ public class Account extends User {
 			throw new AccountException("Invalid last name!");
 		}
 	}
+	
+	public void reserve(Estate estate, LocalDate startDay, LocalDate endDay, int numAdults, int numChildren){
+		if(estate != null){
+			try {
+				String roomType = Room.checkType(numAdults, numChildren);
+				estate.reserveRoom(roomType, startDay, endDay);
+			} catch (RoomException e) {
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+			} catch (ReservationException e) {
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+			}
+			
+		}
+	}
 
 	private boolean isValidPassword(String password) {
-		if (password != null && password.length() >= MIN_PASSWORD_SIZE && !password.matches("[^A-Z]+") && !password.matches("[^a-z]+")
-				&& !password.matches("[^0-9]+")) {
+		if (password != null && password.length() >= MIN_PASSWORD_SIZE && !password.matches("[^A-Z]+")
+				&& !password.matches("[^a-z]+") && !password.matches("[^0-9]+")) {
 			return true;
 		}
 		return false;
 	}
 
 	private boolean isValidEmail(String email) {
-		if(email != null)
+		if (email != null)
 			return true;
 		return false;
 	}
