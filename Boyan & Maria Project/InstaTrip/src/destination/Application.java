@@ -39,17 +39,16 @@ public class Application {
 			boyan.createRooms(boyan.getEstate("Sofia+ZlatenRog+18"), 5, 0, 4, 120);
 			boyan.createRooms(boyan.getEstate("Sofia+KrumPopov+22"), 3, 0, 2, 200);
 
-			User.search(bg, sofia, 2016, 7, 20, 2016, 7, 25, 2, 3);
+			User.search(bg, sofia, 2016, 12, 20, 2016, 12, 25, 2, 0);
 			
 			Account vanio = new Account("Ivancho97", "fhje7Ufef", "vancyki@abv.bg", "Ivan", "Kolev");
 			
 			
+			vanio.reserve(CeaserPalace, LocalDate.of(2016,12,24), LocalDate.of(2016,12,29), 2, 0);
+			vanio.reserve(CeaserPalace, LocalDate.of(2016,12,24), LocalDate.of(2016,12,29), 2, 0);
+		
 			
-			vanio.reserve(CeaserPalace, LocalDate.of(2016,12,24), LocalDate.of(2016,12,29), 2, 0);
-			vanio.reserve(CeaserPalace, LocalDate.of(2016,12,24), LocalDate.of(2016,12,29), 2, 0);
-			vanio.reserve(CeaserPalace, LocalDate.of(2016,12,24), LocalDate.of(2016,12,29), 2, 0);
-			vanio.reserve(CeaserPalace, LocalDate.of(2016,12,24), LocalDate.of(2016,12,29), 2, 0);
-			vanio.reserve(CeaserPalace, LocalDate.of(2016,12,24), LocalDate.of(2016,12,29), 2, 0);
+			User.search(bg, sofia, 2016, 12, 20, 2016, 12, 25, 2, 0);
 			
 
 		} catch (Exception e) {
