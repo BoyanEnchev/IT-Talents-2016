@@ -1,0 +1,31 @@
+package exceptions;
+
+public class WorkerException extends Exception {
+
+	private static final long serialVersionUID = -6217766317391887878L;
+
+	public WorkerException() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public WorkerException(String arg0) {
+		super(arg0);
+		// TODO Auto-generated constructor stub
+	}
+
+	public WorkerException(Throwable arg0) {
+		super(arg0);
+		// TODO Auto-generated constructor stub
+	}
+
+	public WorkerException(String arg0, Throwable arg1) {
+		super(arg0, arg1);
+		// TODO Auto-generated constructor stub
+	}
+
+	public WorkerException(String arg0, Throwable arg1, boolean arg2, boolean arg3) {
+		super(arg0, arg1, arg2, arg3);
+		// TODO Auto-generated constructor stub
+	}
+
+}
