@@ -15,6 +15,7 @@ public class Demo {
 		GasStation omv = new GasStation();
 
 		try {
+			
 			Thread worker1 = new Thread(new Worker(omv));
 			Thread worker2 = new Thread(new Worker(omv));
 			worker1.setDaemon(true);
@@ -26,9 +27,11 @@ public class Demo {
 			omv.generateCashDesks(cashier1, cashier2);
 			Thread c1 = new Thread(cashier1);
 			Thread c2 = new Thread(cashier2);
+			c1.setDaemon(true);
+			c2.setDaemon(true);
 			
 			
-			for (int i = 0; i < 10; i++) {
+			for (int i = 0; i < 1000; i++) {
 				String owner = ownerNames[rand.nextInt(ownerNames.length)];
 				String car = cars[rand.nextInt(cars.length)];
 				new Thread(new CarOwner(owner, car, omv)).start();
@@ -40,8 +43,8 @@ public class Demo {
 			c2.start();
 			
 			
-			Thread.sleep(30000);
-			cashier1.printPayments();
+			//Thread.sleep(30000);
+			//cashier1.printPayments();
 			
 
 		} catch (Exception e) {

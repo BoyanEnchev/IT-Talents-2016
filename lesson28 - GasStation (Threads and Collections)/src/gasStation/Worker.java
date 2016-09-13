@@ -36,7 +36,7 @@ public class Worker implements Runnable {
 					System.out.println("WORKER : Zarejdam kolkonka nomer: " + column.getNumber());
 					try {
 						CarOwner carOwner = column.refuelCar();
-						Thread.currentThread().sleep(3000);
+						Thread.currentThread().sleep(1000);
 
 						synchronized (station) {
 							while (this.station.containsOwner(carOwner)) {
@@ -46,9 +46,14 @@ public class Worker implements Runnable {
 								synchronized (station) {
 									String fuelType = GasStation.fuelTypes[new Random().nextInt(GasStation.fuelTypes.length)];
 									station.addClientToCashDesk(column.getNumber(), carOwner, fuelType, (new Random().nextInt(30)+10));
+									carOwner.setReady(true);
+									
 									station.notify();
 								}
 							}
+						}
+						synchronized (carOwner) {
+							carOwner.notify();
 						}
 					} catch (InterruptedException e) {
 						e.printStackTrace();

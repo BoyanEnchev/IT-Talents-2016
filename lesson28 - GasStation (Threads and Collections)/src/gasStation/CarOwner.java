@@ -8,6 +8,7 @@ public class CarOwner implements Runnable {
 	private String car;
 	private GasStation station;
 	private int columnNum;
+	private boolean isReady = false;
 
 	public CarOwner(String name, String car, GasStation station) throws CarOwnerException {
 		if (name != null && car != null && station != null) {
@@ -29,12 +30,20 @@ public class CarOwner implements Runnable {
 			System.out.println("OWNER: " + this.toString() + " Spiram da zarejdam na " + column.toString());
 
 			column.addCarOwner(this);
-			//cashdesk.addClient(this);
+			// cashdesk.addClient(this);
 			synchronized (station) {
 				station.notify();
 			}
-			
-			
+
+			synchronized (this) {
+				while (!this.isReady) {
+					this.wait();
+				}
+				if (isReady) {
+					notifyAll();
+				}
+			}
+
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -55,6 +64,10 @@ public class CarOwner implements Runnable {
 	public int getColumn() {
 		// TODO Auto-generated method stub
 		return this.columnNum;
+	}
+
+	public void setReady(boolean isReady) {
+		this.isReady = isReady;
 	}
 
 }

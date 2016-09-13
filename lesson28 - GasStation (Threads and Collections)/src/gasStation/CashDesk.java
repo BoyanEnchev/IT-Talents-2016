@@ -13,14 +13,22 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
+
+import java.sql.*;
+
+
 public class CashDesk implements Runnable {
+	
+	public static void main(String[] args) {
+		
+	}
 
 	private static final int NUMBER_OF_COLUMNS = 5;
 	private static ConcurrentMap<Integer, List<Payment>> archive = new ConcurrentHashMap<>();
 	private static int count = 0;
 	private GasStation station;
 
-	private BlockingQueue<CarOwner> waitingOwners = new ArrayBlockingQueue<>(1);
+	private BlockingQueue<CarOwner> waitingOwners = new ArrayBlockingQueue<>(5);
 	private int number;
 
 	public CashDesk(GasStation gasStation) throws IOException {
@@ -41,12 +49,7 @@ public class CashDesk implements Runnable {
 	public void run() {
 
 		while (true) {
-			try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			
 			while (waitingOwners.isEmpty()) {
 				try {
 					synchronized (station) {
@@ -72,10 +75,16 @@ public class CashDesk implements Runnable {
 					}
 				}
 			}
-
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			synchronized (station) {
 				station.notify();
 			}
+			
 		}
 	}
 
@@ -86,8 +95,22 @@ public class CashDesk implements Runnable {
 	public void addClient(int columnNumber, CarOwner carOwner, String fuelType, int litres)
 			throws InterruptedException {
 		this.waitingOwners.put(carOwner);
-		this.archive.get(columnNumber).add(new Payment(litres, fuelType, LocalDateTime.now()));
-
+		LocalDateTime moment = LocalDateTime.now();
+		this.archive.get(columnNumber).add(new Payment(litres, fuelType, moment));
+		
+		try {
+			Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost:3306/carsystem" , "root", "b15q14__" );
+			Statement mySt = myCon.createStatement();
+			String query = "insert into station_loadings " + " (kolonka_number, fuel_type, fuel_quantity, loading_time)"
+							+ "values ('" + columnNumber + "', '" + fuelType + "', '" + litres + "', '" + moment + "')";
+			mySt.executeUpdate(query);
+			myCon.close();
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+		
 	}
 
 	public boolean containsClient(CarOwner carOwner) {
